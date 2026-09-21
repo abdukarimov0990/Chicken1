@@ -11,15 +11,15 @@ import { RevealGroup } from "./ui/Reveal";
  */
 export function Footer() {
   return (
-    <footer className="relative isolate overflow-hidden bg-navy text-white deck:overflow-visible deck:bg-transparent">
+    <footer className="relative isolate overflow-hidden bg-navy text-white">
       <DotPattern
         columns={11}
         rows={3}
         color="rgb(255 255 255 / 0.16)"
-        className="absolute top-12 right-[max(1.5rem,calc(50%-41rem))] -z-10 hidden animate-float lg:block deck:top-0"
+        className="absolute top-12 right-[max(1.5rem,calc(50%-41rem))] -z-10 hidden animate-float lg:block"
       />
 
-      <section id="xulosa" aria-labelledby="xulosa-title" className="wrap scroll-mt-14 py-16 lg:py-24 deck:py-0">
+      <section id="xulosa" aria-labelledby="xulosa-title" className="wrap scroll-mt-14 py-16 lg:py-24">
         <RevealGroup interval={0.1}>
           <motion.p
             variants={fadeUp}
@@ -45,7 +45,7 @@ export function Footer() {
 
         <RevealGroup
           interval={0.07}
-          className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:mt-16 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-14 deck:mt-12 deck:gap-y-12"
+          className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:mt-16 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-14"
         >
           {SUMMARY.map((item) => (
             <motion.div key={item.label} variants={fadeUp} className="relative pt-5">
@@ -69,7 +69,7 @@ export function Footer() {
         </RevealGroup>
       </section>
 
-      <div className="border-t border-white/10 deck:hidden">
+      <div className="border-t border-white/10">
         <div className="wrap flex flex-col gap-5 py-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="flex items-center gap-3">
             <span className="flex size-8 items-center justify-center rounded-lg bg-white text-navy">

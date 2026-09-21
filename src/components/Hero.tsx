@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { BREED, LOCATION, PARTNER_NAME } from "../data/content";
 import { EASE_OUT, fadeIn, fadeUp, stagger } from "../lib/motion";
-import { useSlideActive } from "../lib/reveal";
 import { DotPattern } from "./ui/DotPattern";
 
 /** Word groups that must stay together when the headline wraps on narrow screens. */
@@ -21,8 +20,6 @@ const ornament: Variants = {
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  // On the scrolling page the intro plays once on load; in the deck it replays with its slide.
-  const onStage = useSlideActive() ?? true;
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const driftSlow = useTransform(scrollYProgress, [0, 1], [0, 70]);
   const driftFast = useTransform(scrollYProgress, [0, 1], [0, 120]);
@@ -34,11 +31,11 @@ export function Hero() {
       aria-labelledby="hero-title"
       variants={stagger(0.12, 0.25)}
       initial="hidden"
-      animate={onStage ? "show" : "hidden"}
-      className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-12 deck:overflow-visible deck:pt-0 deck:pb-6"
+      animate="show"
+      className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-12"
     >
       <div className="wrap text-center">
-        <motion.div variants={ornament} className="mb-7 flex justify-center xl:hidden deck:hidden">
+        <motion.div variants={ornament} className="mb-7 flex justify-center xl:hidden">
           <DotPattern columns={9} rows={2} gap={14} />
         </motion.div>
 
@@ -51,7 +48,7 @@ export function Hero() {
           <span aria-hidden className="h-px w-8 bg-navy/30" />
         </motion.p>
 
-        <h1 id="hero-title" className="mx-auto mt-6 max-w-[68rem] uppercase deck:mt-4">
+        <h1 id="hero-title" className="mx-auto mt-6 max-w-[68rem] uppercase">
           <motion.span
             variants={fadeUp}
             className="block text-[clamp(0.8125rem,1.55vw,1.25rem)] leading-relaxed font-bold tracking-[0.08em] text-balance text-navy"
@@ -59,7 +56,7 @@ export function Hero() {
             “{PARTNER_NAME}” kompaniyasi bilan hamkorlikda
           </motion.span>
 
-          <span className="mt-3 block text-[clamp(2.5rem,6.2vw,5rem)] leading-[1.02] font-extrabold tracking-[-0.035em] text-accent lg:mt-4 deck:mt-2 deck:text-[4.5rem]">
+          <span className="mt-3 block text-[clamp(2.5rem,6.2vw,5rem)] leading-[1.02] font-extrabold tracking-[-0.035em] text-accent lg:mt-4">
             {HEADLINE.map((group, g) => (
               <Fragment key={g}>
                 <span className="whitespace-nowrap">
@@ -81,7 +78,7 @@ export function Hero() {
 
           <motion.span
             variants={fadeUp}
-            className="mt-3 block text-[clamp(1rem,2.3vw,1.875rem)] leading-snug font-extrabold tracking-[0.01em] text-balance text-navy lg:mt-4 deck:mt-2 deck:text-[1.625rem]"
+            className="mt-3 block text-[clamp(1rem,2.3vw,1.875rem)] leading-snug font-extrabold tracking-[0.01em] text-balance text-navy lg:mt-4"
           >
             To‘liq naslchilik zanjirini mahalliylashtirish loyihasi
           </motion.span>
@@ -89,7 +86,7 @@ export function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="mt-7 inline-flex items-center gap-3 rounded-3xl border border-line bg-white px-5 py-2.5 text-left text-xs leading-relaxed font-bold tracking-[0.12em] text-navy uppercase shadow-[0_8px_24px_-12px_rgb(18_52_91/0.25)] sm:rounded-full sm:py-2 sm:text-[0.8125rem] deck:mt-5"
+          className="mt-7 inline-flex items-center gap-3 rounded-3xl border border-line bg-white px-5 py-2.5 text-left text-xs leading-relaxed font-bold tracking-[0.12em] text-navy uppercase shadow-[0_8px_24px_-12px_rgb(18_52_91/0.25)] sm:rounded-full sm:py-2 sm:text-[0.8125rem]"
         >
           <MapPin aria-hidden className="size-4 shrink-0 text-accent" strokeWidth={2.2} />
           <span>
@@ -107,7 +104,7 @@ export function Hero() {
       <motion.div
         aria-hidden
         style={{ y: driftSlow }}
-        className="absolute top-36 left-[max(1.5rem,calc(50%-41rem))] hidden xl:block deck:top-8 deck:block"
+        className="absolute top-36 left-[max(1.5rem,calc(50%-41rem))] hidden xl:block"
       >
         <motion.div variants={ornament}>
           <DotPattern className="animate-float" />
@@ -116,7 +113,7 @@ export function Hero() {
       <motion.div
         aria-hidden
         style={{ y: driftFast }}
-        className="absolute top-36 right-[max(1.5rem,calc(50%-41rem))] hidden xl:block deck:top-8 deck:block"
+        className="absolute top-36 right-[max(1.5rem,calc(50%-41rem))] hidden xl:block"
       >
         <motion.div variants={ornament}>
           <DotPattern className="animate-float [animation-delay:-5s]" />

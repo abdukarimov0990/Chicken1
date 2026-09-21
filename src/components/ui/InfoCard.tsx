@@ -41,7 +41,7 @@ export function InfoCard({ icon: Icon, badge: Badge, overline, label, value, suf
           {label}
         </h3>
         <p className="mt-2 flex items-baseline justify-center gap-1.5 leading-none font-extrabold text-accent">
-          <AnimatedCounter value={value} className="text-[3.5rem] tracking-[-0.04em] xl:text-[3.75rem] deck:text-[3.75rem]" />
+          <AnimatedCounter value={value} className="text-[3.5rem] tracking-[-0.04em] xl:text-[3.75rem]" />
           {suffix && <span className="text-2xl">{suffix}</span>}
         </p>
         <p className="mt-2.5 text-xs leading-snug font-bold tracking-[0.1em] text-balance text-navy uppercase">

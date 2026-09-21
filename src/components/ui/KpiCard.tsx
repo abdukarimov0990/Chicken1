@@ -1,30 +1,30 @@
-import type { ReactNode } from "react";
 import { motion } from "framer-motion";
+import type { Result } from "../../data/results";
 import { fadeUp } from "../../lib/motion";
 import { cn } from "../../lib/cn";
 import { AnimatedCounter } from "./AnimatedCounter";
 
-type KpiCardProps = {
-  icon: ReactNode;
-  label: string;
-  note?: string;
-  value: number;
-  unit: string;
+type KpiCardProps = Result & {
+  /** `dark` sets today's figure apart from the projected ones. */
+  tone?: "light" | "dark";
   className?: string;
 };
 
 /**
- * Result indicator: navy label, oversized red figure, small unit.
+ * Result indicator: label, oversized figure, small unit.
  * Lays out as a compact row on phones and as a column from `sm` up.
  */
-export function KpiCard({ icon, label, note, value, unit, className }: KpiCardProps) {
+export function KpiCard({ Icon, label, note, value, decimals, unit, tone = "light", className }: KpiCardProps) {
+  const dark = tone === "dark";
+
   return (
     <motion.article
       variants={fadeUp}
       className={cn(
-        "group relative flex items-center justify-between gap-4 overflow-hidden rounded-3xl border border-line bg-white p-5",
-        "transition-[translate,box-shadow,border-color] duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-navy/20 hover:shadow-card",
+        "group relative flex items-center justify-between gap-4 overflow-hidden rounded-3xl border p-5",
+        "transition-[translate,box-shadow,border-color] duration-500 ease-out-expo hover:-translate-y-1.5 hover:shadow-card",
         "sm:flex-col sm:items-start sm:justify-start sm:gap-0 sm:p-7",
+        dark ? "border-navy bg-navy text-white" : "border-line bg-white hover:border-navy/20",
         className,
       )}
     >
@@ -34,22 +34,43 @@ export function KpiCard({ icon, label, note, value, unit, className }: KpiCardPr
       />
 
       <div className="flex min-w-0 items-center gap-4 sm:block">
-        <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-mist text-navy sm:size-14">
-          {icon}
+        <div
+          className={cn(
+            "flex size-12 shrink-0 items-center justify-center rounded-2xl sm:size-14",
+            dark ? "bg-white/10 text-white" : "bg-mist text-navy",
+          )}
+        >
+          <Icon className="size-6 sm:size-7" />
         </div>
         <div className="min-w-0 sm:mt-6">
-          <h3 className="text-xs leading-snug font-bold tracking-[0.08em] text-navy uppercase sm:min-h-[2.75em] sm:text-[0.8125rem]">
+          <h3
+            className={cn(
+              "text-xs leading-snug font-bold tracking-[0.08em] uppercase sm:min-h-[2.75em] sm:text-[0.8125rem]",
+              dark ? "text-white" : "text-navy",
+            )}
+          >
             {label}
           </h3>
-          {note && <p className="mt-1.5 text-xs font-semibold text-muted">{note}</p>}
+          {note && (
+            <p className={cn("mt-1.5 text-xs font-semibold", dark ? "text-white/70" : "text-muted")}>{note}</p>
+          )}
         </div>
       </div>
 
       <div className="shrink-0 text-right sm:mt-auto sm:pt-8 sm:text-left">
-        <p className="leading-none font-extrabold tracking-[-0.04em] text-accent">
-          <AnimatedCounter value={value} className="text-5xl sm:text-[clamp(3.75rem,5.4vw,5rem)]" />
+        <p className={cn("leading-none font-extrabold tracking-[-0.04em]", dark ? "text-white" : "text-accent")}>
+          <AnimatedCounter
+            value={value}
+            decimals={decimals}
+            className="text-5xl sm:text-[clamp(3.75rem,5.4vw,5rem)]"
+          />
         </p>
-        <p className="mt-2 text-[0.6875rem] font-bold tracking-[0.16em] text-navy uppercase sm:mt-3 sm:text-xs">
+        <p
+          className={cn(
+            "mt-2 text-[0.6875rem] font-bold tracking-[0.16em] uppercase sm:mt-3 sm:text-xs",
+            dark ? "text-white/80" : "text-navy",
+          )}
+        >
           {unit}
         </p>
       </div>

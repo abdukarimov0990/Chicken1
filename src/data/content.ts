@@ -12,6 +12,8 @@ import tj from "../assets/flags/tj.svg";
 
 export const PARTNER_NAME = "BEIJING HUA DU YOUKOU POULTRY CO., LTD";
 export const COMPANY_NAME = "BARAKA NASILLI PARRANDA";
+/** Short legal form for tight spots: XK = xususiy korxona (private enterprise). */
+export const COMPANY_SHORT = "“Baraka Nasilli Parranda” XK";
 export const BREED = "WOD-188-2";
 
 export const LOCATION = {
@@ -25,8 +27,6 @@ export const SECTIONS = [
   { id: "afzallik", label: "Afzallik" },
   { id: "eksport", label: "Eksport" },
   { id: "natijalar", label: "Natijalar" },
-  { id: "ishlab-chiqarish", label: "Ishlab chiqarish" },
-  { id: "rivojlanish", label: "Rivojlanish" },
   { id: "xulosa", label: "Xulosa" },
 ] as const;
 
@@ -37,7 +37,7 @@ export const sectionIndex = (id: SectionId) =>
   String(SECTIONS.findIndex((section) => section.id === id) + 1).padStart(2, "0");
 
 export const PROJECT_VALUE = { value: 30, unit: "mln doll." } as const;
-export const POULTRY_HOUSES = { value: 54, suffix: "ta", unit: "zamonaviy parrandaxona" } as const;
+export const POULTRY_HOUSES = { value: 54, suffix: "ta", unit: "zamonaviy parrandaxona quriladi" } as const;
 
 export const JOINT_VENTURE = {
   uzbekistan: { share: 60, label: "O‘zbekiston tomoni" },
@@ -66,25 +66,16 @@ export const EXPORT_COUNTRIES = [
 
 export const CURRENT_PRODUCTION = {
   value: 27.5,
-  unit: "dona / yil",
+  unit: "mln dona / yil",
+  label: "Hozirgi ishlab chiqarish",
   text: "Hozirgi vaqtda yiliga 27,5 mln dona tuxum ishlab chiqarilmoqda.",
 } as const;
 
 export const BREED_TEXT = "Yuqori mahsuldorlikka ega zamonaviy tuxum yo‘nalishidagi tovuq zoti.";
 
-export const ENTERPRISES = {
-  value: 18,
-  text: "Hozirgi vaqtda 18 ta korxona faoliyat yuritmoqda.",
-} as const;
-
-export const EXPANSION = [
-  { value: 45, label: "Jo‘jalar uchun korxona" },
-  { value: 9, label: "Ota-ona tovuqlari uchun korxona" },
-] as const;
-
 export const SUMMARY = [
   { value: "30", unit: "mln doll.", label: "Loyiha qiymati" },
-  { value: "54", unit: "ta", label: "Zamonaviy parrandaxona" },
+  { value: "54", unit: "ta", label: "Zamonaviy parrandaxona quriladi" },
   { value: "60 / 40", unit: "foiz", label: "O‘zbekiston va Xitoy ulushi" },
   { value: "85", unit: "mln dona", label: "Yillik inkubatsion tuxum" },
   { value: "72", unit: "mln dona / yil", label: "Jo‘ja ishlab chiqarish quvvati" },

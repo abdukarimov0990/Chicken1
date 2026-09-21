@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* `deck:` styles apply while the page runs as a full-screen slide deck (see src/deck). */
-@custom-variant deck (&:where([data-mode="deck"], [data-mode="deck"] *));
-
 @theme {
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -87,17 +84,17 @@
 }
 
 /*
- * Deck mode: the whole interface is sized in rem, so scaling the root font
- * scales every slide uniformly. 16px corresponds to a 1440 × 900 stage; whatever
- * the screen (1080p, 4K, ultra-wide), a slide always has at least 90 × 56.25rem.
+ * Poster mode (src/poster): the whole interface is sized in rem, so scaling the root
+ * font scales the poster uniformly. 16px corresponds to a 1440 × 900 stage; whatever
+ * the screen (1080p, 4K, ultra-wide), the poster always has at least 90 × 56.25rem.
  */
-html[data-mode="deck"] {
+html[data-mode="poster"] {
   font-size: min(1.1111vw, 1.7778vh);
 }
 
-html[data-mode="deck"],
-html[data-mode="deck"] body,
-html[data-mode="deck"] #root {
+html[data-mode="poster"],
+html[data-mode="poster"] body,
+html[data-mode="poster"] #root {
   height: 100%;
   overflow: hidden;
   overscroll-behavior: none;

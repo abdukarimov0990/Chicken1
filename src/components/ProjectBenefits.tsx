@@ -15,7 +15,7 @@ function Figure({ children }: { children: string }) {
 /** The wide "Loyiha afzalligi" card: the breeding chain in words, with its yearly output. */
 export function ProjectBenefits() {
   return (
-    <section id="afzallik" aria-labelledby="afzallik-title" className="wrap scroll-mt-20 pt-16 lg:pt-24 deck:pt-0">
+    <section id="afzallik" aria-labelledby="afzallik-title" className="wrap scroll-mt-20 pt-16 lg:pt-24">
       <SectionHeading id="afzallik-title" index={sectionIndex("afzallik")} title="Loyiha afzalligi" />
 
       <RevealGroup
@@ -47,7 +47,7 @@ export function ProjectBenefits() {
                   </li>
                 )}
                 <li className="flex-1 border-l-2 border-navy/15 pl-4 sm:border-l-0 sm:pl-0">
-                  <p className="text-lg leading-tight font-extrabold tracking-tight text-navy uppercase xl:text-xl deck:text-xl">
+                  <p className="text-lg leading-tight font-extrabold tracking-tight text-navy uppercase xl:text-xl">
                     {step.value}
                   </p>
                   <p className="mt-1 text-sm leading-snug font-medium text-muted">{step.caption}</p>

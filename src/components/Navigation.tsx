@@ -65,7 +65,7 @@ export function Navigation({ activeId, progress, solid, onSelect, trailing }: Na
           </span>
         </a>
 
-        <div className="hidden items-center gap-2 xl:flex deck:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <ul className="flex items-center">
             {SECTIONS.map((section) => {
               const isActive = section.id === activeId;
@@ -102,7 +102,7 @@ export function Navigation({ activeId, progress, solid, onSelect, trailing }: Na
           aria-expanded={menuOpen}
           aria-controls="mobile-sections"
           onClick={() => setMenuOpen((open) => !open)}
-          className="-mr-2 flex items-center gap-3 rounded-full py-1.5 pr-2 pl-3 text-navy xl:hidden deck:hidden"
+          className="-mr-2 flex items-center gap-3 rounded-full py-1.5 pr-2 pl-3 text-navy xl:hidden"
         >
           <span className="text-[0.6875rem] font-bold tracking-[0.14em] whitespace-nowrap uppercase">
             <span className="text-accent tabular-nums">{sectionIndex(activeSection.id)}</span>
@@ -127,7 +127,7 @@ export function Navigation({ activeId, progress, solid, onSelect, trailing }: Na
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.45, ease: EASE_OUT }}
-            className="overflow-hidden border-t border-line xl:hidden deck:hidden"
+            className="overflow-hidden border-t border-line xl:hidden"
           >
             <ul className="wrap py-3">
               {SECTIONS.map((section) => (

@@ -35,10 +35,12 @@ const settle: Variants = {
 type ImageCardProps = GalleryImage & {
   index: number;
   sizes: string;
+  /** Load immediately: the image is on screen from the first paint (poster). */
+  priority?: boolean;
   className?: string;
 };
 
-export function ImageCard({ src, webpSrcSet, alt, label, focus, index, sizes, className }: ImageCardProps) {
+export function ImageCard({ src, webpSrcSet, alt, label, focus, index, sizes, priority, className }: ImageCardProps) {
   return (
     <motion.figure
       variants={frame}
@@ -55,7 +57,7 @@ export function ImageCard({ src, webpSrcSet, alt, label, focus, index, sizes, cl
             alt={alt}
             width={1400}
             height={1050}
-            loading="lazy"
+            loading={priority ? "eager" : "lazy"}
             decoding="async"
             style={{ objectPosition: focus }}
             className="size-full object-cover transition-[scale] duration-[1200ms] ease-out-expo group-hover:scale-[1.07]"
