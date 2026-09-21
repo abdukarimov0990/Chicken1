@@ -44,7 +44,7 @@ export const JOINT_VENTURE = {
   china: { share: 40, label: "Xitoy tomoni" },
 } as const;
 
-export const PARENT_STOCK = { value: 693, unit: "ming bosh / yil" } as const;
+export const PARENT_STOCK = { value: 500, unit: "ming bosh / yil" } as const;
 
 export const BENEFIT = {
   chain: [
