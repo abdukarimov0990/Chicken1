@@ -35,7 +35,7 @@ export function Hero() {
       variants={stagger(0.12, 0.25)}
       initial="hidden"
       animate={onStage ? "show" : "hidden"}
-      className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-12 deck:overflow-visible deck:pt-0 deck:pb-7"
+      className="relative overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-12 deck:overflow-visible deck:pt-0 deck:pb-6"
     >
       <div className="wrap text-center">
         <motion.div variants={ornament} className="mb-7 flex justify-center xl:hidden deck:hidden">

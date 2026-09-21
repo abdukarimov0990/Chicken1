@@ -181,7 +181,7 @@ export function JointVenture({ standalone = false }: { standalone?: boolean }) {
         </div>
 
         {standalone && (
-          <dl className="mt-8 border-t border-navy/10 pt-6">
+          <dl className="mt-8 mb-10 border-t border-navy/10 pt-6">
             <dt className="text-xs font-bold tracking-[0.14em] text-navy uppercase">Loyiha hamkori</dt>
             <dd className="mt-2 text-base leading-relaxed font-semibold text-ink">“{PARTNER_NAME}”</dd>
           </dl>

@@ -88,7 +88,7 @@ export function Deck({ slides }: { slides: SlideDefinition[] }) {
                 }}
                 className="h-full overflow-x-hidden overflow-y-auto overscroll-contain pt-14 pb-24"
               >
-                <div className="flex min-h-full flex-col justify-center py-5">
+                <div className="flex min-h-full flex-col justify-center py-3">
                   <SlideActiveContext.Provider value={i === staged}>{slide.content}</SlideActiveContext.Provider>
                 </div>
               </div>

@@ -20,7 +20,7 @@ export function ProjectOverview({ jointVenture = true }: { jointVenture?: boolea
         Loyiha haqida asosiy ma’lumotlar
       </h2>
 
-      <Reveal timing={{ notBefore: 0.9 }} className="rounded-[1.75rem] border-[1.5px] border-dashed border-navy/35 p-4 sm:p-6 lg:p-7">
+      <Reveal timing={{ notBefore: 0.9 }} className="rounded-[1.75rem] border-[1.5px] border-dashed border-navy/35 p-4 sm:p-6 lg:p-7 deck:p-6">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)_minmax(0,1.58fr)] lg:gap-0">
           <RevealGroup
             interval={0.14}
